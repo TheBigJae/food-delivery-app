@@ -7,10 +7,10 @@ class Restaurant extends ChangeNotifier {
 
   final List<Food> _menu = [
     //burgers
-    Food( 
+    Food(
         name: "Classic Cheeseburger",
         descriptioon: "lorem ",
-        imagePath: "lib/images/burgers/burger1.jpg",
+        imagePath: "lib/images/burger/burger1.jpg",
         price: 0.99,
         category: FoodCategory.burgers,
         availableAddons: [
@@ -21,7 +21,7 @@ class Restaurant extends ChangeNotifier {
     Food(
         name: "Burger Burger",
         descriptioon: "lorem ",
-        imagePath: "lib/images/burgers/burger2.jpg",
+        imagePath: "lib/images/burger/burger6.avif",
         price: 0.99,
         category: FoodCategory.burgers,
         availableAddons: [
@@ -32,7 +32,7 @@ class Restaurant extends ChangeNotifier {
     Food(
         name: "Buggano Burger",
         descriptioon: "lorem ",
-        imagePath: "lib/images/burgers/burger3.jpg",
+        imagePath: "lib/images/burger/burger3.jpg",
         price: 0.99,
         category: FoodCategory.burgers,
         availableAddons: [
@@ -43,7 +43,7 @@ class Restaurant extends ChangeNotifier {
     Food(
         name: "Piccasso Cheeseburger",
         descriptioon: "lorem ",
-        imagePath: "lib/images/burgers/burger4.jpg",
+        imagePath: "lib/images/burger/burger4.jpg",
         price: 0.99,
         category: FoodCategory.burgers,
         availableAddons: [
@@ -54,7 +54,7 @@ class Restaurant extends ChangeNotifier {
     Food(
         name: "Panamana burger",
         descriptioon: "lorem ",
-        imagePath: "lib/images/burgers/burger1.jpg",
+        imagePath: "lib/images/burger/burger1.jpg",
         price: 0.99,
         category: FoodCategory.burgers,
         availableAddons: [
@@ -79,7 +79,7 @@ class Restaurant extends ChangeNotifier {
     Food(
         name: "Salad 2",
         descriptioon: "Eating Salad is good for the body",
-        imagePath: "lib/images/salad/salad2.jpg",
+        imagePath: "lib/images/salad/salad2.avif",
         price: 1.99,
         category: FoodCategory.salads,
         availableAddons: [
@@ -112,7 +112,7 @@ class Restaurant extends ChangeNotifier {
     Food(
         name: "Salad 5",
         descriptioon: "Eating Salad is good for the body",
-        imagePath: "lib/images/salad/salda5.jpg",
+        imagePath: "lib/images/salad/salad5.jpg",
         price: 1.99,
         category: FoodCategory.salads,
         availableAddons: [
@@ -141,7 +141,7 @@ class Restaurant extends ChangeNotifier {
     Food(
         name: "Sides 3",
         descriptioon: "Sideee food",
-        imagePath: "lib/images/sides/sides3.jpg",
+        imagePath: "lib/images/sides/sides2.jpg",
         price: 2.1,
         category: FoodCategory.sides,
         availableAddons: [Addon(name: "Yam and Egg", price: 1.99)]),
@@ -274,16 +274,16 @@ class Restaurant extends ChangeNotifier {
    OPERATIONS
 
    */
-  
-  // add to cart 
 
-  //remove from cart 
+  // add to cart
 
-  //get total price of item in cart 
+  //remove from cart
 
-  //get no of items in the cart 
+  //get total price of item in cart
 
-  //clear cart 
+  //get no of items in the cart
+
+  //clear cart
 
   /* 
   
@@ -293,7 +293,7 @@ class Restaurant extends ChangeNotifier {
 
   //generate a receipt
 
-  //format double value into money 
+  //format double value into money
 
-  //format list of addons into a string summary 
+  //format list of addons into a string summary
 }
