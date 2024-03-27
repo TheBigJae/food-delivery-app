@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/components/my_cart_tile.dart';
 import 'package:food_delivery_app/models/restaurant.dart';
 import 'package:provider/provider.dart';
 
@@ -21,14 +22,18 @@ class CartPage extends StatelessWidget {
           ),
           body: Column(
             children: [
-              Expanded(child: 
-              ListView.builder(
-                itemCount: userCart.length,
-                itemBuilder: (context, index) => ListTile(
-                  title: Text(userCart[index].food.name),
-                )))
+              Expanded(
+                  child: ListView.builder(
+                      itemCount: userCart.length,
+                      itemBuilder: (context, index) {
+                        //get individual cart item
+                        final cartItem = userCart[index];
+
+                        // return cart tile
+                        return MyCartTile();
+                      }))
             ],
-          ) ,
+          ),
         );
       },
     );
