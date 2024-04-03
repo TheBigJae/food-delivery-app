@@ -263,6 +263,11 @@ class Restaurant extends ChangeNotifier {
           Addon(name: "Small", price: 2.0)
         ]),
   ];
+  // user cart
+  final List<CartItem> _cart = [];
+
+  // delivery address which user can change/update
+  String _deliveryaddress = '99 Ibadan Stree';
 
   /* 
   
@@ -272,15 +277,13 @@ class Restaurant extends ChangeNotifier {
 
   List<Food> get menu => _menu;
   List<CartItem> get cart => _cart;
-
+  String get deliveryaddress => _deliveryaddress;
   /* 
   
    OPERATIONS
 
    */
 
-  // user cart
-  final List<CartItem> _cart = [];
   // add to cart
   void addToCart(Food food, List<Addon> selectedAddons) {
     // check if therre is a cart item existing with the same food and selected addons
@@ -348,6 +351,12 @@ class Restaurant extends ChangeNotifier {
     _cart.clear();
     notifyListeners();
   }
+
+  void updateDeliveryAddress(String newAddress) {
+    _deliveryaddress = newAddress;
+    notifyListeners();
+  }
+
   /* 
   
    HELPERS

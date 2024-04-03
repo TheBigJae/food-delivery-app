@@ -50,13 +50,9 @@ class MyCartTile extends StatelessWidget {
                             //food price
                             Text('\$${cartItem.food.price.toString()}', style: TextStyle(
                               color: Theme.of(context).colorScheme.primary
-                            ),)
-                          ],
-                        ),
-
-                        const Spacer(),
-
-                        //increment or decrement the  quantity
+                            ),),
+                              const SizedBox(height: 10,),
+                              //increment or decrement the  quantity
                         QantitySelector(
                             quantity: cartItem.quantity,
                             food: cartItem.food,
@@ -67,6 +63,12 @@ class MyCartTile extends StatelessWidget {
                               restaurant.addToCart(
                                   cartItem.food, cartItem.selectedAddons);
                             })
+                          ],
+                        ),
+
+                      
+
+                      
                       ],
                     ),
                   ),

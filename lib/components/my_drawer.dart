@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/components/my_drawer_tile.dart';
 import 'package:food_delivery_app/pages/settings_page.dart';
+import 'package:food_delivery_app/services/auth/auth_service.dart';
 
 class MyDrawer extends StatefulWidget {
   const MyDrawer({super.key});
+
+ 
 
   @override
   State<MyDrawer> createState() => _MyDrawerState();
@@ -58,7 +61,12 @@ class _MyDrawerState extends State<MyDrawer> {
 
           //logout list tile
 
-          MyDrawerTile(text: "L O G O U T ", onTap: () {}, icon: Icons.logout),
+          MyDrawerTile(
+              text: "L O G O U T ",
+              onTap: () {
+                logout();
+              },
+              icon: Icons.logout),
 
           const SizedBox(
             height: 25,
@@ -66,5 +74,10 @@ class _MyDrawerState extends State<MyDrawer> {
         ],
       ),
     );
+  }
+  
+  void logout() {
+     final authService = AuthService();
+    authService.signOut();
   }
 }

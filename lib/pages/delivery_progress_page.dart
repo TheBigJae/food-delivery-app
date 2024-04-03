@@ -1,15 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/components/my_receipt.dart';
+import 'package:food_delivery_app/models/restaurant.dart';
+import 'package:food_delivery_app/services/database/firestore.dart';
+import 'package:provider/provider.dart';
 
-class DeliveryProgressPage extends StatelessWidget {
+class DeliveryProgressPage extends StatefulWidget {
   const DeliveryProgressPage({super.key});
+
+  @override
+  State<DeliveryProgressPage> createState() => _DeliveryProgressPageState();
+}
+
+class _DeliveryProgressPageState extends State<DeliveryProgressPage> {
+  //get access to the database
+  FirestoreService db = FirestoreService();
+
+  @override
+  void initState() {
+    super.initState();
+
+    // if we get to this page, submit order to firestore db
+    String receipt = context.read<Restaurant>().displayCartReceipt();
+    db.saveOrderToDatabase(receipt);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Delivery in Progress"),
-      ),
+      appBar: AppBar(),
       bottomNavigationBar: _buildBottomNavBar(context),
       body: Column(
         children: [
@@ -69,10 +87,15 @@ class DeliveryProgressPage extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: IconButton(
-                    onPressed: () {}, icon: const Icon(Icons.message), color: Theme.of(context).colorScheme.primary,),
+                  onPressed: () {},
+                  icon: const Icon(Icons.message),
+                  color: Theme.of(context).colorScheme.primary,
+                ),
               ),
 
-              const SizedBox(width: 10,),
+              const SizedBox(
+                width: 10,
+              ),
               //call button
 
               Container(
@@ -81,7 +104,10 @@ class DeliveryProgressPage extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: IconButton(
-                    onPressed: () {}, icon: const Icon(Icons.call), color: Colors.green,),
+                  onPressed: () {},
+                  icon: const Icon(Icons.call),
+                  color: Colors.green,
+                ),
               ),
             ],
           )

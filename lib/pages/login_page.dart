@@ -1,7 +1,10 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/components/my_button.dart';
 import 'package:food_delivery_app/components/my_textfield.dart';
 import 'package:food_delivery_app/pages/home_page.dart';
+import 'package:food_delivery_app/services/auth/auth_service.dart';
 
 class LoginPage extends StatefulWidget {
   final void Function()? onTap;
@@ -17,13 +20,34 @@ class _LoginPageState extends State<LoginPage> {
 
   TextEditingController passwordController = TextEditingController();
 
-  void login() {
-    /*  Authentication to login */
+  void login() async {
+    // get instance of auth service
 
-    //Navigation to the HomePage
+    final _authService = AuthService();
 
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => const HomePage()));
+    //try sign in
+    try {
+      await _authService.signInWithEmailPassword(
+          emailController.text, passwordController.text);
+    }
+
+    //display errors
+    catch (e) {
+      showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+                title: Text(e.toString()),
+              ));
+    }
+  }
+
+  void forgotPw() {
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              backgroundColor: Theme.of(context).colorScheme.background,
+              title: const Text("User tapped forgot Password"),
+            ));
   }
 
   @override
